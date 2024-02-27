@@ -1,16 +1,16 @@
-# RenderIH
+# SALAD-Bench
 
-This is the repository that contains source code for the RenderIH.
+This is the repository that contains source code for SALAD-Bench.
 
-If you find RenderIH useful for your work please cite:
+If you find SALAD-Bench useful for your work please cite:
 ```
-@InProceedings{Li_2023_ICCV,
-    author    = {Li, Lijun and Tian, Linrui and Zhang, Xindi and Wang, Qi and Zhang, Bang and Bo, Liefeng and Liu, Mengyuan and Chen, Chen},
-    title     = {RenderIH: A Large-Scale Synthetic Dataset for 3D Interacting Hand Pose Estimation},
-    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
-    month     = {October},
-    year      = {2023},
-    pages     = {20395-20405}
+@misc{li2024saladbench,
+      title={SALAD-Bench: A Hierarchical and Comprehensive Safety Benchmark for Large Language Models}, 
+      author={Lijun Li and Bowen Dong and Ruohui Wang and Xuhao Hu and Wangmeng Zuo and Dahua Lin and Yu Qiao and Jing Shao},
+      year={2024},
+      eprint={2402.05044},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
 }
 ```
 
