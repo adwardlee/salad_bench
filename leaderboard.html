@@ -483,7 +483,6 @@
       updateChart(currentUrl);
     });
 
-    BaseEvalRadio.click();
 
     function displayChart(data, url) {
       var sizeSet = new Set();
@@ -600,20 +599,19 @@
     window.addEventListener("resize", () => {
       this.myChart.resize();
     });
+  
 
+    document.addEventListener("DOMContentLoaded", function() {
+    // Assuming 'updateTable' and 'updateChart' are functions you've defined earlier in your script
+    var originTable = document.getElementById('origin');
+    var currentUrl = 'base_order.csv';
 
-    function initChart() {
-    // Your chart initialization code
-    var myChart = echarts.init(document.getElementById('chart'));
-    currentUrl = 'base_order.csv';
     updateTable(originTable, currentUrl, 'total');
     updateChart(currentUrl);
-  }
 
-  // Add this at the end of your existing JavaScript code
-  document.addEventListener("DOMContentLoaded", function() {
-    initChart(); // Initialize the chart
-    document.getElementById('Base').click(); // Populate the table
+    // You might not need to simulate a click on the 'Base' button if the above functions 
+    // properly load and display your data.
+    // document.getElementById('Base').click(); // This line might be unnecessary.
   });
   </script>
 
