@@ -115,10 +115,6 @@
     <div  id="chart" style="width:100%;height:400px;"></div>
     <div class="container-fluid d-flex flex-row flex-nowrap">
       <div class="container-fluid d-flex flex-column align-items-center">
-        <label for="plused" class="text-success mb-3">⚡With EvalPlus⚡</label>
-        <table id="plused" class="table table-responsive table-striped table-bordered flex-shrink-1 border border-success border-3"></table>
-      </div>
-      <div class="container-fluid d-flex flex-column align-items-center">
         <label for="origin" class="text-danger mb-3">Original</label>
         <table id="origin" class="table table-responsive table-striped table-bordered flex-shrink-1 border border-danger border-3"></table>
       </div>
@@ -127,13 +123,8 @@
       <h3>📝 Notes</h3>
       <p class="inline-block mt-3">
         <ol>
-          <li>Samples are generated from scratch and are post-processed by <a href="https://github.com/evalplus/evalplus/tree/master/tools/sanitize.py">our sanitizer script</a>. We also run syntax checkers to avoid trivial syntactical errors.</li>
-          <li>Models are ranked according to pass@1 using greedy decoding. Setup details can be found <a href="https://github.com/evalplus/evalplus/blob/master/codegen/model.py">here</a>.</li>
-          <li>Models labelled with ✨ are evaluated using an instruction/chat setting, while others perform direct code generation given the prompt.</li>
-          <li>Both MBPP and MBPP+ referred in our leaderboard use a subset (399 tasks) of hand-verified problems from MBPP-sanitized (427 tasks), to make sure the programming task is well-formed and unambiguous.</li>
-          <li>It is the model providers' responsibility to avoid data contamination and clarify the training data, and we cannot guarantee if evaluated models are contaminated.</li>
-          <li>💚 means the model is fully open-sourced with weights and training data. 💙 means, while the weights & fine-tuning data is known, the base model is trained on unknown data. What does this mean? Because we know how 💚 models are trained (or partially trained for 💙 models) so we can somehow reason and measure its contamination.</li>
-          <li>The "size" of Mixtral 8x7B models is regarded to be 13B, aka the actual required compute per inference.</li>
+          <li>Models are ranked according to safety rate% using greedy decoding.</li>
+          <li>💚 means the model is fully open-sourced with weights. 💙 means, while the weights are unknown.</li>
         </ol>
       </p>
     </div>
