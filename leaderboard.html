@@ -386,7 +386,7 @@
     function updateChartWithAverageData(urls) {
       clearChart();
       // we only use 'plus' data for chart
-      getAveragedData(urls, "pass@1_plus").then(function(averagedData) {
+      getAveragedData(urls, "total").then(function(averagedData) {
         for(var i = 0; i < averagedData.length; i++){
           var sizeMatch = averagedData[i]['Model'].match(/\d+(\.\d+)?B/g);
           sizeMatch = sizeMatch ? Math.round(parseFloat(sizeMatch[0].replace('B', ''))).toString() : 'N/A';
@@ -446,20 +446,13 @@
         modelCell.appendChild(modelLink);
         modelCell.classList.add('d-flex');
         modelCell.classList.add('flex-nowrap');
-        var prompted = row['prompted'];
-        var opendata = row['OD'];
-        if (prompted == 'True') {
-          // add a symbol to indicate the model is prompted
-          var promptedSymbol = document.createElement('span');
-          promptedSymbol.textContent = '✨';
-          modelCell.appendChild(promptedSymbol);
-        }
-        if (opendata.toUpperCase() == "FULL") {
+        var opendata = row['Open or Not'];
+        if (opendata == 1) {
           // add a symbol to indicate the model is fully open-sourced
           var promptedSymbol = document.createElement('span');
           promptedSymbol.textContent = '💚'
           modelCell.appendChild(promptedSymbol);
-        } else if (opendata.toUpperCase() == "PARTIAL") {
+        } else if (opendata == 0) {
           // add a symbol to indicate the model is partially open-sourced
           // i.e., a subset of the model implementation is close-sourced
           var promptedSymbol = document.createElement('span');
@@ -470,9 +463,6 @@
         var passCell = document.createElement('td');
         if (table == originTable) {
           passCell.classList.add('text-danger');
-        } else if (table == plusedTable) {
-          passCell.textContent = "⚡";
-          passCell.classList.add('text-success');
         }
         passCell.textContent += row[displayColumn];
         dataRow.appendChild(passCell);
@@ -518,8 +508,8 @@
 
       var maxScore = 0.0;
       data.forEach(function(row) {
-        if (parseFloat(row['pass@1_plus']) > maxScore) {
-          maxScore = parseFloat(row['pass@1_plus']);
+        if (parseFloat(row['total']) > maxScore) {
+          maxScore = parseFloat(row['total']);
         }
       });
       option.yAxis.max = maxScore + 1;
@@ -529,24 +519,24 @@
           if (row['prompted'].toUpperCase() == 'TRUE') {
             option.series[1].markLine.data.push({
               name: row['Model'],
-              yAxis: row['pass@1_plus']
+              yAxis: row['total']
             });
           } else {
             option.series[0].markLine.data.push({
               name: row['Model'],
-              yAxis: row['pass@1_plus']
+              yAxis: row['total']
             });
           }
         } else {
           if (row['prompted'].toUpperCase() == 'TRUE') {
             option.series[1].data.push({
               name: row['Model'],
-              value: [row['Size'], row['pass@1_plus']],
+              value: [row['Size'], row['total']],
             });
           } else {
             option.series[0].data.push({
               name: row['Model'],
-              value: [row['Size'], row['pass@1_plus']],
+              value: [row['Size'], row['total']],
             });
           }
         }
@@ -568,13 +558,13 @@
         data.forEach(function(row) {
           if (row['Size'] == size) {
             if(row['prompted'].toUpperCase() == 'TRUE') {
-              if (parseFloat(row['pass@1_plus']) > maxScoreIns) {
-                maxScoreIns = parseFloat(row['pass@1_plus']);
+              if (parseFloat(row['total']) > maxScoreIns) {
+                maxScoreIns = parseFloat(row['total']);
                 maxModelIns = row['Model'];
               }
             } else {
-              if (parseFloat(row['pass@1_plus']) > maxScore) {
-                maxScore = parseFloat(row['pass@1_plus']);
+              if (parseFloat(row['total']) > maxScore) {
+                maxScore = parseFloat(row['total']);
                 maxModel = row['Model'];
               }
             }
