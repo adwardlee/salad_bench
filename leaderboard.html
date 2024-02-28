@@ -100,6 +100,9 @@
       <a href="https://arxiv.org/abs/2402.05044"><img
           src="https://img.shields.io/badge/Arxiv-20B2AA?style=for-the-badge" alt="paper"
           class="img-fluid"></a>
+        <a href="./index.html"><img
+        src="https://img.shields.io/badge/Project%20page-20B2AA?style=for-the-badge" alt="project_page"
+        class="img-fluid"></a>
     </div>
     <div class="btn-group" role="group" id="Benchmark">
       <input type="radio" class="btn-check" name="btnradio" id="Base" checked>
@@ -131,20 +134,6 @@
           <li>It is the model providers' responsibility to avoid data contamination and clarify the training data, and we cannot guarantee if evaluated models are contaminated.</li>
           <li>💚 means the model is fully open-sourced with weights and training data. 💙 means, while the weights & fine-tuning data is known, the base model is trained on unknown data. What does this mean? Because we know how 💚 models are trained (or partially trained for 💙 models) so we can somehow reason and measure its contamination.</li>
           <li>The "size" of Mixtral 8x7B models is regarded to be 13B, aka the actual required compute per inference.</li>
-        </ol>
-      </p>
-    </div>
-    <div id = "notes">
-      <h3>🤗 More Leaderboards</h3>
-      In addition to EvalPlus leaderboards, it is recommended to comprehensively understand LLM coding ability through a diverse set of benchmarks and leaderboards, such as:
-      <p class="inline-block mt-3">
-        <ol>
-          <li><a href="https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard">Big Code Models Leaderboard</a></li>
-          <li><a href="https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard">Chatbot Arena Leaderboard</a></li>
-          <li><a href="https://fudanselab-classeval.github.io/">ClassEval Leaderboard</a></li>
-          <li><a href="https://crux-eval.github.io/leaderboard.html">CRUXEval Leaderboard</a></li>
-          <li><a href="https://infi-coder.github.io/inficoder-eval/">InfiCoder-Eval</a></li>
-          <li><a href="https://leaderboard.tabbyml.com/">TabbyML Leaderboard</a></li>
         </ol>
       </p>
     </div>
@@ -498,22 +487,19 @@
 
     avergeRadio.addEventListener('click', function () {
       currentUrls = ['base_order.csv', 'attack_order.csv'];
-      updateTableWithAverageData(originTable, currentUrls, 'pass@1_base');
-      updateTableWithAverageData(plusedTable, currentUrls, 'pass@1_plus');
+      updateTableWithAverageData(originTable, currentUrls, 'total');
       updateChartWithAverageData(currentUrls);
     });
 
     AttackRadio.addEventListener('click', function () {
       currentUrl = 'attack_order.csv';
-      updateTable(originTable, currentUrl, 'pass@1_base');
-      updateTable(plusedTable, currentUrl, 'pass@1_plus');
+      updateTable(originTable, currentUrl, 'total');
       updateChart(currentUrl);
     });
 
     BaseRadio.addEventListener('click', function () {
       currentUrl = 'base_order.csv';
-      updateTable(originTable, currentUrl, 'pass@1_base');
-      updateTable(plusedTable, currentUrl, 'pass@1_plus');
+      updateTable(originTable, currentUrl, 'total');
       updateChart(currentUrl);
     });
 
