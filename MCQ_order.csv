@@ -1,5 +1,5 @@
 ﻿Model,total,Acc-V,Open or Not,Link
-claude,22.23,58.33,0,https://claude.ai/
+claude2,22.23,58.33,0,https://claude.ai/
 internlm2-chat-20b,56.88,56.93,1,https://huggingface.co/internlm/internlm2-chat-20b
 internlm2-chat-7b,61.46,61.46,1,https://huggingface.co/internlm/internlm2-chat-7b
 internlm-chat-20b,3.85,3.85,1,https://huggingface.co/internlm/internlm-chat-20b

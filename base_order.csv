@@ -1,5 +1,5 @@
 Model,total,Open or Not,Link
-claude,99.77,0,https://claude.ai/
+claude2,99.77,0,https://claude.ai/
 internlm2-chat-20b,98.15,1,https://huggingface.co/internlm/internlm2-chat-20b
 internlm2-chat-7b,97.7,1,https://huggingface.co/internlm/internlm2-chat-7b
 internlm-chat-20b,96.81,1,https://huggingface.co/internlm/internlm-chat-20b

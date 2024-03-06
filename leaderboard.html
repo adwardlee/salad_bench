@@ -115,7 +115,7 @@
       <input type="radio" class="btn-check" name="btnradio" id="Average"> 
       <label class="btn btn-outline-primary" for="Average">Average</label>
     </div>
-    <div  id="chart" style="width:100%;height:400px;"></div>
+    <!-- <div  id="chart" style="width:100%;height:400px;"></div> -->
     <div class="container-fluid d-flex flex-row flex-nowrap">
       <div class="container-fluid d-flex flex-column align-items-center">
         <label for="origin" class="text-danger mb-3">Ranking</label>
@@ -139,7 +139,7 @@
     const benchmarkRadio = document.getElementById('Benchmark');
     const chartDom = document.getElementById('chart');
     
-    var myChart = echarts.init(chartDom);
+    // var myChart = echarts.init(chartDom);
 
     var option = {
       legend: {
@@ -606,9 +606,9 @@
       option && myChart.setOption(option);
     }
 
-    window.addEventListener("resize", () => {
-      this.myChart.resize();
-    });
+    // window.addEventListener("resize", () => {
+    //   this.myChart.resize();
+    // });
   
 
     document.addEventListener("DOMContentLoaded", function() {
