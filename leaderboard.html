@@ -110,6 +110,8 @@
       <label class="btn btn-outline-primary" for="Base">Base</label>
       <input type="radio" class="btn-check" name="btnradio" id="Attack-enhanced"> 
       <label class="btn btn-outline-primary" for="Attack-enhanced">Attack-enhanced</label>
+      <input type="radio" class="btn-check" name="btnradio" id="Multiple-choice"> 
+      <label class="btn btn-outline-primary" for="Multiple-choice">Multiple-choice</label>
       <input type="radio" class="btn-check" name="btnradio" id="Average"> 
       <label class="btn btn-outline-primary" for="Average">Average</label>
     </div>
@@ -125,7 +127,7 @@
       <p class="inline-block mt-3">
         <ol>
           <li>Models are ranked according to Safety rate% using greedy decoding.</li>
-          <li>💚 means the model is fully open-sourced with weights. 💙 means the weights are unknown.</li>
+          <li>📖 means the model is fully open-sourced with weights. 📕 means the weights are unknown.</li>
         </ol>
       </p>
     </div>
@@ -441,13 +443,13 @@
         if (opendata == 1) {
           // add a symbol to indicate the model is fully open-sourced
           var promptedSymbol = document.createElement('span');
-          promptedSymbol.textContent = '💚'
+          promptedSymbol.textContent = '📖'
           modelCell.appendChild(promptedSymbol);
         } else if (opendata == 0) {
           // add a symbol to indicate the model is partially open-sourced
           // i.e., a subset of the model implementation is close-sourced
           var promptedSymbol = document.createElement('span');
-          promptedSymbol.textContent = '💙';
+          promptedSymbol.textContent = '📕';
           modelCell.appendChild(promptedSymbol);
         }
         dataRow.appendChild(modelCell);
@@ -465,23 +467,30 @@
     const avergeRadio = document.getElementById('Average');
     const BaseRadio = document.getElementById('Base');
     const AttackRadio = document.getElementById('Attack-enhanced');
+    const McqRadio = document.getElementById('Multiple-choice');
 
     avergeRadio.addEventListener('click', function () {
-      currentUrls = ['base_order.csv', 'attack_order.csv'];
+      currentUrls = ['base_order.csv', 'attack_order.csv', 'MCQ_order.csv'];
       updateTableWithAverageData(originTable, currentUrls, 'total');
-      updateChartWithAverageData(currentUrls);
+      // updateChartWithAverageData(currentUrls);
     });
 
     AttackRadio.addEventListener('click', function () {
       currentUrl = 'attack_order.csv';
       updateTable(originTable, currentUrl, 'total');
-      updateChart(currentUrl);
+      // updateChart(currentUrl);
+    });
+
+    McqRadio.addEventListener('click', function () {
+      currentUrl = 'MCQ_order.csv';
+      updateTable(originTable, currentUrl, 'total');
+      // updateChart(currentUrl);
     });
 
     BaseRadio.addEventListener('click', function () {
       currentUrl = 'base_order.csv';
       updateTable(originTable, currentUrl, 'total');
-      updateChart(currentUrl);
+      // updateChart(currentUrl);
     });
 
 
@@ -608,7 +617,7 @@
     var currentUrl = 'base_order.csv';
 
     updateTable(originTable, currentUrl, 'total');
-    updateChart(currentUrl);
+    // updateChart(currentUrl);
 
     // You might not need to simulate a click on the 'Base' button if the above functions 
     // properly load and display your data.
